@@ -38,6 +38,9 @@ pnpm-debug.log*
 # Original extracted source kept as a local comparison backup
 /Mizuki-master/
 
+# Accidental nested repository kept out of this project
+/mizuki-blog/
+
 # macOS-specific files
 .DS_Store
 
