@@ -6,6 +6,7 @@ import FloatingTOC from "../features/toc/FloatingTOC.astro";
 import BackToHome from "./BackToHome.astro";
 import BackToTop from "./BackToTop.astro";
 import MusicFabButton from "./MusicFabButton.svelte";
+import WritePostShortcut from "./WritePostShortcut.astro";
 
 interface Props {
 	headings?: MarkdownHeading[];
@@ -20,7 +21,10 @@ const { headings = [] } = Astro.props;
 			musicPlayerConfig.showFloatingPlayer &&
 			(musicPlayerConfig.floatingEntryMode ?? "default") === "fab" && (
 				<div class="floating-control-item" data-control-key="music">
-					<MusicFabButton client:idle />
+					<div class="music-control-cluster">
+						<WritePostShortcut />
+						<MusicFabButton client:idle />
+					</div>
 				</div>
 			)
 	}
@@ -89,6 +93,14 @@ const { headings = [] } = Astro.props;
 		transform: translateY(0.25rem) scale(0.92);
 		margin-top: 0 !important;
 		pointer-events: none;
+	}
+
+	.music-control-cluster {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: var(--fab-group-gap);
+		pointer-events: auto;
 	}
 
 	:global(html.fab-visibility-locked #floating-toc-btn.fab-lock-visible),

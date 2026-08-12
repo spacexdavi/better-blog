@@ -1,0 +1,120 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button
+	id="write-post-shortcut"
+	type="button"
+	class="write-post-shortcut btn-card"
+	aria-label="写文章"
+	title="写文章"
+	onclick="window.location.assign('/admin/write/')"
+>
+	<Icon name="material-symbols:edit-square-outline-rounded" />
+	<span>写文章</span>
+</button>
+
+<style>
+	.write-post-shortcut {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4rem;
+		height: var(--fab-button-size, 3rem);
+		width: 0;
+		min-width: 0;
+		padding: 0;
+		border: 0 solid transparent;
+		border-radius: 1rem;
+		overflow: hidden;
+		white-space: nowrap;
+		color: var(--primary);
+		font-size: 0.875rem;
+		font-weight: 700;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transform: translateX(0.65rem) scale(0.92);
+		cursor: pointer;
+		transition:
+			width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+			padding 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+			border-width 0.28s ease,
+			opacity 0.2s ease,
+			transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+			visibility 0s linear 0.28s;
+	}
+
+	.write-post-shortcut :global(svg) {
+		flex: 0 0 auto;
+		font-size: 1.3rem;
+	}
+
+	:global(.music-control-cluster:hover) .write-post-shortcut,
+	:global(.music-control-cluster:focus-within) .write-post-shortcut {
+		width: 6.2rem;
+		padding: 0.25rem 0.8rem;
+		border-width: 1px;
+		border-color: rgba(148, 163, 184, 0.45);
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		transform: translateX(0) scale(1);
+		transition-delay: 0s;
+	}
+
+	.write-post-shortcut:hover {
+		box-shadow: var(--shadow-button);
+	}
+
+	.write-post-shortcut:active {
+		transform: scale(0.94);
+	}
+
+	:global(.dark) .write-post-shortcut {
+		color: var(--primary, #60a5fa);
+	}
+
+	:global(.dark .music-control-cluster:hover) .write-post-shortcut,
+	:global(.dark .music-control-cluster:focus-within) .write-post-shortcut {
+		border-color: rgba(255, 255, 255, 0.15);
+	}
+
+	:global(.dark) .write-post-shortcut:hover {
+		box-shadow: var(--shadow-button-dark);
+	}
+
+	@media (hover: none) {
+		.write-post-shortcut {
+			width: var(--fab-button-size, 2.75rem);
+			padding: 0.25rem;
+			border-width: 1px;
+			border-color: rgba(148, 163, 184, 0.45);
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+			transform: none;
+			transition: none;
+		}
+
+		.write-post-shortcut span {
+			display: none;
+		}
+
+		:global(.dark) .write-post-shortcut {
+			border-color: rgba(255, 255, 255, 0.15);
+		}
+	}
+
+	@media (width < 768px) {
+		.write-post-shortcut {
+			border-radius: 0.75rem;
+		}
+	}
+
+	@media (width < 480px) {
+		.write-post-shortcut {
+			border-radius: 0.5rem;
+		}
+	}
+</style>
