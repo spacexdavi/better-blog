@@ -205,7 +205,9 @@ export default defineConfig({
 		svelte({
 			preprocess: vitePreprocess(),
 		}),
-		sitemap(),
+		sitemap({
+			filter: (page) => !page.includes("/admin/"),
+		}),
 		mdx(),
 	],
 	markdown: {

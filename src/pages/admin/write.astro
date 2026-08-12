@@ -1,0 +1,82 @@
+---
+import PostPublisher from "@components/features/publisher/PostPublisher.svelte";
+import { siteConfig } from "../../config";
+
+const githubConfig = {
+	owner: import.meta.env.PUBLIC_GITHUB_OWNER || "",
+	repo: import.meta.env.PUBLIC_GITHUB_REPO || "",
+	branch: import.meta.env.PUBLIC_GITHUB_BRANCH || "main",
+	appId: import.meta.env.PUBLIC_GITHUB_APP_ID || "",
+	postsPath:
+		import.meta.env.PUBLIC_GITHUB_POSTS_PATH || "src/content/posts",
+};
+const configHue = siteConfig.themeColor.hue;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex,nofollow" />
+		<meta name="referrer" content="no-referrer" />
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https:; font-src 'self' data:; connect-src https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'"
+		/>
+		<meta
+			name="description"
+			content="在浏览器中编辑并发布 Mizuki 文章"
+		/>
+		<link rel="icon" href="/favicon/favicon.ico" />
+		<title>写文章 - {siteConfig.title}</title>
+	</head>
+	<body style={`--publisher-hue: ${configHue}`}>
+		<main>
+			<PostPublisher client:only="svelte" config={githubConfig} />
+		</main>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		color-scheme: light dark;
+		font-family:
+			Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+			sans-serif;
+	}
+	body {
+		--primary: oklch(0.65 0.16 var(--publisher-hue));
+		--card-bg: rgba(255, 255, 255, 0.94);
+		--line-divider: rgba(32, 35, 42, 0.13);
+		--text-color: #24262d;
+		--radius-large: 1rem;
+		margin: 0;
+		min-height: 100vh;
+		background:
+			radial-gradient(circle at 15% 0%, color-mix(in srgb, var(--primary) 13%, transparent), transparent 34rem),
+			#f2f4f8;
+		color: var(--text-color);
+	}
+	main {
+		width: min(1480px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 2rem 0 4rem;
+	}
+	@media (prefers-color-scheme: dark) {
+		body {
+			--card-bg: rgba(28, 30, 36, 0.96);
+			--line-divider: rgba(255, 255, 255, 0.13);
+			--text-color: #e8e9ed;
+			background:
+				radial-gradient(circle at 15% 0%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 34rem),
+				#14161b;
+		}
+	}
+	@media (max-width: 640px) {
+		main {
+			width: min(100% - 1rem, 1480px);
+			padding-top: 1rem;
+		}
+	}
+</style>

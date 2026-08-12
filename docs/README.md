@@ -15,6 +15,7 @@
 - **[CONTENT_AUTHORING.zh.md](./CONTENT_AUTHORING.zh.md)** - 简体中文内容编写指南
 - **[CONTENT_AUTHORING.ja.md](./CONTENT_AUTHORING.ja.md)** - 日本語コンテンツ執筆ガイド
 - **[CONTENT_AUTHORING.tw.md](./CONTENT_AUTHORING.tw.md)** - 繁體中文內容編寫指南
+- **[BROWSER_PUBLISHING.zh.md](./BROWSER_PUBLISHING.zh.md)** - 浏览器写作、GitHub App 提交与 Vercel 自动发布
 
 所有版本均包括：
 
@@ -72,6 +73,9 @@
 ### 我想部署博客
 → 阅读 [部署指南](./DEPLOYMENT.md)
 
+### 我想直接在浏览器中发布文章
+→ 阅读 [浏览器发布配置](./BROWSER_PUBLISHING.zh.md)
+
 ### 我想使用内容分离功能
 → 阅读 [内容分离完整指南](./CONTENT_SEPARATION.md)
 
@@ -97,6 +101,7 @@ docs/
 ├── README.md                    # 本文档 - 索引导航
 ├── CONTENT_AUTHORING*.md        # 多语言 Frontmatter 与 Markdown/MDX 写作指南
 ├── CONTENT_RENDERING.md         # Markdown/MDX 与 Feed 渲染
+├── BROWSER_PUBLISHING.zh.md     # 浏览器发布与 GitHub App 配置
 ├── CONTENT_SEPARATION.md        # 内容分离核心指南
 ├── CONTENT_REPOSITORY.md        # 内容仓库结构
 ├── MIGRATION_GUIDE.md           # 迁移指南

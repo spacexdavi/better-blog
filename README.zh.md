@@ -147,6 +147,8 @@ PlantUML 默认使用 `src/config/markdownConfig.ts` 中配置的公共服务器
 
 完整字段表、写作语法、图片规则、图表、视频嵌入、加密限制和发布清单请参阅[内容编写指南](docs/CONTENT_AUTHORING.zh.md)。
 
+如果希望部署后直接在浏览器里写作，并自动提交 GitHub、触发 Vercel 部署，请参阅[浏览器发布配置](docs/BROWSER_PUBLISHING.zh.md)。
+
 ## ⚡ 命令
 
 所有命令都在项目根目录运行：

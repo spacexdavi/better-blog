@@ -19,6 +19,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# GitHub App private keys used by the browser publisher
+*.pem
+
 # content repository (independent mode)
 /content/
 *.backup
@@ -31,6 +34,9 @@ pnpm-debug.log*
 
 # Large zip files
 *.zip
+
+# Original extracted source kept as a local comparison backup
+/Mizuki-master/
 
 # macOS-specific files
 .DS_Store
